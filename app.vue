@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <CountryList/> -->
+    <CountryList/>
     <!-- <CountryPage/> -->
     <!-- <Map/> -->
   </div>
