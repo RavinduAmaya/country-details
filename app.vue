@@ -1,7 +1,7 @@
 <template>
   <div>
-    <CountryList/>
-    <!-- <CountryPage/> -->
-    <!-- <Map/> -->
+    <NuxtLayout>
+      <NuxtPage/>
+    </NuxtLayout>
   </div>
 </template>
