@@ -1,3 +1,4 @@
 export default defineEventHandler(async (event) => {
-  return $fetch('https://countryapi.io/api/all?apikey=ENrF0DwmJT5aDvYuE0VOyu1d0OeAideJjv7jYhLK');
+  const apiKey = process.env.COUNTRY_API_KEY;
+  return $fetch(`https://countryapi.io/api/all?apikey=${apiKey}`);
 })
