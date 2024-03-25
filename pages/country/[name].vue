@@ -96,8 +96,6 @@ export default {
   },
   methods: {
     async getCountry() {
-      console.log("process.env.COUNTRY_API_KEY", process.env.COUNTRY_API_KEY);
-      console.log("this.countryName", this.$route.params.name);
       try {
         const unwrappedCountry = await $fetch("/api/country-details/country", {
           params: {
