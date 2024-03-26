@@ -20,11 +20,7 @@
           </v-card>
         </NuxtLink>
       </v-col>
-      <v-col
-        cols="12"
-        xl="2"
-        class="country-container__row-cols"
-      >
+      <v-col cols="12" xl="2" class="country-container__row-cols">
         <button
           class="more-item-button"
           @click="loadContent"
@@ -88,6 +84,10 @@ export default {
   padding: 15px;
   align-items: center;
   justify-items: center;
+  box-shadow: 5px 6px 7px 4px
+      var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)),
+    0px 1px 1px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
+    0px 1px 3px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
 }
 .country-container__row-cols {
   justify-content: center;
@@ -98,6 +98,10 @@ export default {
 .more-item-button {
   height: auto !important;
   cursor: pointer;
+  color: #000;
+  background-color: #ffffff;
+  width: 175px;
+  border-radius: 10px;
 }
 .nuxt-link {
   text-decoration: none;
