@@ -2,7 +2,11 @@
   <div class="country-container">
     <v-row no-gutters class="country-container__rows">
       <v-col
-        cols="2"
+        cols="12"
+        sm="6"
+        md="3"
+        lg="2"
+        xl="2"
         v-for="(country, index) in countriesList"
         :key="index"
         class="country-container__row-cols"
@@ -16,7 +20,11 @@
           </v-card>
         </NuxtLink>
       </v-col>
-      <v-col cols="2" class="country-container__row-cols">
+      <v-col
+        cols="12"
+        xl="2"
+        class="country-container__row-cols"
+      >
         <button
           class="more-item-button"
           @click="loadContent"
@@ -85,6 +93,7 @@ export default {
   justify-content: center;
   display: flex;
   margin: 15px;
+  align-items: center;
 }
 .more-item-button {
   height: auto !important;
