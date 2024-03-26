@@ -1,6 +1,6 @@
 <template>
-  <div class="country-card">
-    <v-card class="country-card__details">
+  <div class="country-card-container">
+    <v-card class="country-card">
       <v-row class="title">
         <v-col cols="12">
           <h1>{{ country.name }}</h1>
@@ -58,7 +58,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="flag-container">
+        <v-col cols="12" class="map-contaner--parent">
           <v-row>
             <Map
               v-if="country.latitude && country.longtitude"
@@ -129,7 +129,7 @@ export default {
 .title {
   text-align: center;
 }
-.country-card {
+.country-card-container {
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -139,14 +139,14 @@ export default {
   font-weight: bold;
   margin-left: 10px;
 }
-.country-card__details {
+.country-card {
   width: 90vw;
   height: 75vh;
   justify-content: center;
   align-items: center;
   display: flex;
 }
-.flag-container {
+.map-contaner--parent {
   justify-content: center;
   display: grid;
   align-items: center;
