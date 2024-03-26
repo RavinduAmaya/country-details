@@ -1,14 +1,20 @@
 <template>
-  <div class="home-page__title">Choose Your Country</div>
-  <hr/>
-  <CountryList />
+  <div class="home-page">
+    <div class="home-page__title">Choose Your Country</div>
+    <hr />
+    <CountryList :countries="countries" />
+  </div>
 </template>
 
 <script>
-import CountryList from "../../pages/CountryList.vue";
-
 export default {
-  components: { CountryList },
+  name: "HomePage",
+  props: {
+    countries: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
 
@@ -19,8 +25,5 @@ export default {
   font-size: 35px;
   font-weight: bold;
   color: grey;
-}
-hr{
-  width: 90%;
 }
 </style>

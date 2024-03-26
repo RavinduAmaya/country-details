@@ -4,14 +4,13 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   build: {
-    transpile: ['vuetify'],
+    transpile: ["vuetify"],
   },
+  css: ["~/assets/main.scss"],
   vite: {
     define: {
-      'process.env.DEBUG': false,
+      "process.env.DEBUG": false,
     },
   },
-  modules: [
-    'nuxt3-leaflet'
-  ]
-})
+  modules: ["nuxt3-leaflet"],
+});
