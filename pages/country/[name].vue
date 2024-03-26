@@ -10,7 +10,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="country-details-container">
+        <v-col cols="12" class="country-card_country-details">
           <div>
             <span class="country-card__sub-title">Official Name :</span>
             <span class="country-card__sub-details">{{
@@ -64,7 +64,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="map-contaner--parent">
+        <v-col cols="12" class="country-card__map-contaner">
           <v-row>
             <Map
               v-if="country.latitude && country.longtitude"
@@ -162,12 +162,12 @@ export default {
     0px 1px 1px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
     0px 1px 3px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
 }
-.map-contaner--parent {
+.country-card__map-contaner {
   justify-content: center;
   display: grid;
   align-items: center;
 }
-.country-details-container {
+.country-card_country-details {
   line-height: 2;
   justify-content: center;
   display: grid;
