@@ -1,7 +1,7 @@
 <template>
   <div class="country-card-container">
     <v-card class="country-card">
-      <v-row class="title">
+      <v-row class="country-card__title">
         <v-col cols="12">
           <h1>{{ country.name }}</h1>
         </v-col>
@@ -12,33 +12,33 @@
       <v-row>
         <v-col cols="12" class="country-details-container">
           <div>
-            <span class="sub-title">Official Name :</span>
-            <span class="sub-details">{{ country.officialName }}</span>
+            <span class="country-card__sub-title">Official Name :</span>
+            <span class="country-card__sub-details">{{ country.officialName }}</span>
           </div>
           <div>
-            <span class="sub-title">Calling Code:</span>
-            <span class="sub-details">{{ country.callingCode }}</span>
+            <span class="country-card__sub-title">Calling Code:</span>
+            <span class="country-card__sub-details">{{ country.callingCode }}</span>
           </div>
           <div>
-            <span class="sub-title">Capital:</span>
-            <span class="sub-details">{{ country.capital }}</span>
+            <span class="country-card__sub-title">Capital:</span>
+            <span class="country-card__sub-details">{{ country.capital }}</span>
           </div>
           <div>
-            <span class="sub-title">Region:</span>
-            <span class="sub-details">{{ country.region }}</span>
+            <span class="country-card__sub-title">Region:</span>
+            <span class="country-card__sub-details">{{ country.region }}</span>
           </div>
           <div>
-            <span class="sub-title">Population:</span>
-            <span class="sub-details">{{ country.population }}</span>
+            <span class="country-card__sub-title">Population:</span>
+            <span class="country-card__sub-details">{{ country.population }}</span>
           </div>
           <div>
-            <span class="sub-title">Area:</span>
-            <span class="sub-details">{{ country.area }}</span>
+            <span class="country-card__sub-title">Area:</span>
+            <span class="country-card__sub-details">{{ country.area }}</span>
           </div>
           <div>
-            <div class="sub-title">Currencies</div>
+            <div class="country-card__sub-title">Currencies</div>
             <div
-              class="sub-details"
+              class="country-card__sub-details"
               v-for="currency in country.currencies"
               v-bind:key="currency.name"
             >
@@ -46,9 +46,9 @@
             </div>
           </div>
           <div>
-            <div class="sub-title">Languages</div>
+            <div class="country-card__sub-title">Languages</div>
             <div
-              class="sub-details"
+              class="country-card__sub-details"
               v-for="language in country.languages"
               v-bind:key="language"
             >
@@ -126,8 +126,11 @@ export default {
 </script>
 
 <style>
-.title {
+.country-card__title {
   text-align: center;
+  font-weight: bold;
+  color: grey;
+  font-size: 20px;
 }
 .country-card-container {
   display: flex;
@@ -135,7 +138,10 @@ export default {
   height: 100vh;
   align-items: center;
 }
-.sub-details {
+.country-card__sub-title{
+  color: grey;
+}
+.country-card__sub-details {
   font-weight: bold;
   margin-left: 10px;
 }
