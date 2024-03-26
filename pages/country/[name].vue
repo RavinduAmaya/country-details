@@ -1,6 +1,6 @@
 <template>
-  <div class="country-card-container">
-    <v-card class="country-card">
+  <div class="country-card">
+    <v-card class="country-card__container">
       <v-row class="country-card__title">
         <v-col cols="12">
           <h1>{{ country.name }}</h1>
@@ -13,11 +13,15 @@
         <v-col cols="12" class="country-details-container">
           <div>
             <span class="country-card__sub-title">Official Name :</span>
-            <span class="country-card__sub-details">{{ country.officialName }}</span>
+            <span class="country-card__sub-details">{{
+              country.officialName
+            }}</span>
           </div>
           <div>
             <span class="country-card__sub-title">Calling Code:</span>
-            <span class="country-card__sub-details">{{ country.callingCode }}</span>
+            <span class="country-card__sub-details">{{
+              country.callingCode
+            }}</span>
           </div>
           <div>
             <span class="country-card__sub-title">Capital:</span>
@@ -29,7 +33,9 @@
           </div>
           <div>
             <span class="country-card__sub-title">Population:</span>
-            <span class="country-card__sub-details">{{ country.population }}</span>
+            <span class="country-card__sub-details">{{
+              country.population
+            }}</span>
           </div>
           <div>
             <span class="country-card__sub-title">Area:</span>
@@ -132,20 +138,20 @@ export default {
   color: grey;
   font-size: 20px;
 }
-.country-card-container {
+.country-card {
   display: flex;
   justify-content: center;
   height: 100vh;
   align-items: center;
 }
-.country-card__sub-title{
+.country-card__sub-title {
   color: grey;
 }
 .country-card__sub-details {
   font-weight: bold;
   margin-left: 10px;
 }
-.country-card {
+.country-card__container {
   width: 90vw;
   height: 75vh;
   justify-content: center;
@@ -168,11 +174,11 @@ export default {
 }
 
 @media screen and (max-width: 1500px) {
-  .country-card-container {
+  .country-card {
     align-items: unset;
     height: auto;
   }
-  .country-card {
+  .country-card__container {
     width: 50vw;
     height: auto;
     justify-content: center;

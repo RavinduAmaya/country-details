@@ -34,9 +34,6 @@ export default {
 </script>
 
 <style>
-body {
-  margin: 0;
-}
 .map-container {
   height: 45vh;
   width: 30vw;

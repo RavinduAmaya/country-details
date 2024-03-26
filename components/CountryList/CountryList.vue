@@ -1,6 +1,6 @@
 <template>
-  <div class="country-container">
-    <v-row no-gutters class="country-container__rows">
+  <div class="country-list">
+    <v-row no-gutters class="country-list__container">
       <v-col
         cols="12"
         sm="6"
@@ -9,22 +9,25 @@
         xl="2"
         v-for="(country, index) in countriesList"
         :key="index"
-        class="country-container__row-cols"
+        class="country-list__item"
       >
-        <NuxtLink :to="`country/${country.name}`" class="nuxt-link">
-          <v-card class="flag-container">
-            <div class="flag">
+        <NuxtLink
+          :to="`country/${country.name}`"
+          class="country-list__url-link"
+        >
+          <v-card class="country-list__flag">
+            <div class="country-list__flag-container">
               <img :src="country.flag.medium" />
             </div>
-            <h3 class="country-name">{{ country.name }}</h3>
+            <h3 class="country-list__country">{{ country.name }}</h3>
           </v-card>
         </NuxtLink>
       </v-col>
-      <v-col cols="12" xl="2" class="country-container__row-cols">
+      <v-col cols="12" xl="2" class="country-list__item">
         <button
-          class="more-item-button"
+          class="country-list__view-more-button"
           @click="loadContent"
-          v-if="currentPage * maxPerPage < countriesCount"
+          v-if="currentPage * maxPerPage < countries.length"
         >
           <h3>See more</h3>
         </button>
@@ -37,31 +40,21 @@
 export default {
   name: "CountryList",
   data: () => ({
-    countries: [],
     currentPage: 1,
     maxPerPage: 10,
-    countriesCount: null,
   }),
-  async mounted() {
-    await this.getCountries();
+  props: {
+    countries: {
+      type: Array,
+      required: true,
+    },
   },
   computed: {
     countriesList() {
-      return Object.values(this.countries).slice(
-        0,
-        this.currentPage * this.maxPerPage
-      );
+      return this.countries.slice(0, this.currentPage * this.maxPerPage);
     },
   },
   methods: {
-    async getCountries() {
-      try {
-        this.countries = await $fetch("/api/country-list/countries");
-        this.countriesCount = Object.values(this.countries).length;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     loadContent() {
       this.currentPage = this.currentPage + 1;
     },
@@ -70,14 +63,14 @@ export default {
 </script>
 
 <style>
-.country-container {
+.country-list {
   justify-content: center;
   display: flex;
 }
-.country-container__rows {
+.country-list__container {
   justify-content: center;
 }
-.flag-container {
+.country-list__flag {
   display: grid;
   height: 150px;
   width: 200px;
@@ -89,13 +82,13 @@ export default {
     0px 1px 1px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)),
     0px 1px 3px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));
 }
-.country-container__row-cols {
+.country-list__item {
   justify-content: center;
   display: flex;
   margin: 15px;
   align-items: center;
 }
-.more-item-button {
+.country-list__view-more-button {
   height: auto !important;
   cursor: pointer;
   color: #000;
@@ -103,14 +96,14 @@ export default {
   width: 175px;
   border-radius: 10px;
 }
-.nuxt-link {
+.country-list__url-link {
   text-decoration: none;
 }
-.flag {
+.country-list__flag-container {
   display: flex;
   margin-top: 20px;
 }
-.country-name {
+.country-list__country {
   text-align: center;
 }
 </style>
