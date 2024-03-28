@@ -1,7 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-// import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-
-export default defineNuxtConfig({
+export default {
   devtools: { enabled: true },
   build: {
     transpile: ["vuetify"],
@@ -13,4 +10,5 @@ export default defineNuxtConfig({
     },
   },
   modules: ["nuxt3-leaflet"],
-});
+  buildModules: ['@nuxt/typescript-build']
+}

@@ -1,16 +1,16 @@
 <template>
-  <div class="country-card">
-    <v-card class="country-card__container">
-      <v-row class="country-card__title">
+  <div class="country-card" data-cy="country-card">
+    <v-card class="country-card__container" data-cy="country-card__container">
+      <v-row class="country-card__item">
         <v-col cols="12">
-          <h1>{{ country.name }}</h1>
+          <h1 data-cy="country-card__title">{{ country.name }}</h1>
         </v-col>
         <v-col cols="12">
-          <img :src="country.flag" alt="flag" />
+          <img :src="country.flag" alt="flag" data-cy="country-card__flag" />
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="country-card_country-details">
+        <v-col cols="12" class="country-card__country-details" data-cy="country-card__country-details">
           <div>
             <span class="country-card__sub-title">Official Name :</span>
             <span class="country-card__sub-details">{{
@@ -18,8 +18,8 @@
             }}</span>
           </div>
           <div>
-            <span class="country-card__sub-title">Calling Code:</span>
-            <span class="country-card__sub-details">{{
+            <span class="country-card__sub-title" data-cy=country-card__sub-title>Calling Code:</span>
+            <span class="country-card__sub-details" data-cy=country-card__sub-details>{{
               country.callingCode
             }}</span>
           </div>
@@ -32,8 +32,8 @@
             <span class="country-card__sub-details">{{ country.region }}</span>
           </div>
           <div>
-            <span class="country-card__sub-title">Population:</span>
-            <span class="country-card__sub-details">{{
+            <span class="country-card__sub-title" data-cy=country-card__sub-title>Population:</span>
+            <span class="country-card__sub-details" data-cy=country-card__sub-details>{{
               country.population
             }}</span>
           </div>
@@ -48,7 +48,7 @@
               v-for="currency in country.currencies"
               v-bind:key="currency.name"
             >
-              <li>{{ currency.name }} ({{ currency.symbol }})</li>
+              <li data-cy="country-card__currency">{{ currency.name }} ({{ currency.symbol }})</li>
             </div>
           </div>
           <div>
@@ -58,13 +58,13 @@
               v-for="language in country.languages"
               v-bind:key="language"
             >
-              <li>{{ language }}</li>
+              <li data-cy="country-card__language">{{ language }}</li>
             </div>
           </div>
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="country-card__map-contaner">
+        <v-col cols="12" class="country-card__map-contaner" data-cy="country-card__map-contaner">
           <v-row>
             <Map
               v-if="country.latitude && country.longtitude"
@@ -132,11 +132,8 @@ export default {
 </script>
 
 <style>
-.country-card__title {
+.country-card__item {
   text-align: center;
-  font-weight: bold;
-  color: grey;
-  font-size: 20px;
 }
 .country-card {
   display: flex;
@@ -167,7 +164,7 @@ export default {
   display: grid;
   align-items: center;
 }
-.country-card_country-details {
+.country-card__country-details {
   line-height: 2;
   justify-content: center;
   display: grid;

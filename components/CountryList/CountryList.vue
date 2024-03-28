@@ -1,6 +1,6 @@
 <template>
-  <div class="country-list">
-    <v-row no-gutters class="country-list__container">
+  <div class="country-list" data-cy="country-list">
+    <v-row no-gutters class="country-list__container" data-cy="country-list__container">
       <v-col
         cols="12"
         sm="6"
@@ -10,22 +10,24 @@
         v-for="(country, index) in countriesList"
         :key="index"
         class="country-list__item"
+        data-cy="country-list__item"
       >
         <NuxtLink
           :to="`country/${country.name}`"
           class="country-list__url-link"
+          data-cy="country-list__url-link"
         >
-          <v-card class="country-list__flag">
-            <div class="country-list__flag-container">
+          <v-card class="country-list__flag" data-cy="country-list__flag">
+            <div class="country-list__flag-container" data-cy="country-list__flag-container">
               <img :src="country.flag.medium" />
             </div>
-            <h3 class="country-list__country">{{ country.name }}</h3>
+            <h3 class="country-list__country" data-cy="country-list__country">{{ country.name }}</h3>
           </v-card>
         </NuxtLink>
       </v-col>
       <v-col cols="12" xl="2" class="country-list__item">
         <button
-          class="country-list__view-more-button"
+          data-cy="country-list__view-more-button"
           @click="loadContent"
           v-if="currentPage * maxPerPage < countries.length"
         >
