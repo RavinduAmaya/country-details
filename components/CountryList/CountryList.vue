@@ -1,6 +1,10 @@
 <template>
   <div class="country-list" data-cy="country-list">
-    <v-row no-gutters class="country-list__container" data-cy="country-list__container">
+    <v-row
+      no-gutters
+      class="country-list__container"
+      data-cy="country-list__container"
+    >
       <v-col
         cols="12"
         sm="6"
@@ -18,15 +22,21 @@
           data-cy="country-list__url-link"
         >
           <v-card class="country-list__flag" data-cy="country-list__flag">
-            <div class="country-list__flag-container" data-cy="country-list__flag-container">
+            <div
+              class="country-list__flag-container"
+              data-cy="country-list__flag-container"
+            >
               <img :src="country.flag.medium" />
             </div>
-            <h3 class="country-list__country" data-cy="country-list__country">{{ country.name }}</h3>
+            <h3 class="country-list__country" data-cy="country-list__country">
+              {{ country.name }}
+            </h3>
           </v-card>
         </NuxtLink>
       </v-col>
       <v-col cols="12" xl="2" class="country-list__item">
         <button
+          class="country-list__view-more-button"
           data-cy="country-list__view-more-button"
           @click="loadContent"
           v-if="currentPage * maxPerPage < countries.length"
@@ -44,6 +54,7 @@ export default {
   data: () => ({
     currentPage: 1,
     maxPerPage: 10,
+    title: "hello",
   }),
   props: {
     countries: {
@@ -58,6 +69,7 @@ export default {
   },
   methods: {
     loadContent() {
+      this.title = "clicked";
       this.currentPage = this.currentPage + 1;
     },
   },

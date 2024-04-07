@@ -1,6 +1,6 @@
 <template>
   <div class="country-card" data-cy="country-card">
-    <v-card class="country-card__container" data-cy="country-card__container">
+    <v-card class="country-card__container">
       <v-row class="country-card__item">
         <v-col cols="12">
           <h1 data-cy="country-card__title">{{ country.name }}</h1>
@@ -10,7 +10,11 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="country-card__country-details" data-cy="country-card__country-details">
+        <v-col
+          cols="12"
+          class="country-card__country-details"
+          data-cy="country-card__country-details"
+        >
           <div>
             <span class="country-card__sub-title">Official Name :</span>
             <span class="country-card__sub-details">{{
@@ -18,10 +22,16 @@
             }}</span>
           </div>
           <div>
-            <span class="country-card__sub-title" data-cy=country-card__sub-title>Calling Code:</span>
-            <span class="country-card__sub-details" data-cy=country-card__sub-details>{{
-              country.callingCode
-            }}</span>
+            <span
+              class="country-card__sub-title"
+              data-cy="country-card__sub-title"
+              >Calling Code:</span
+            >
+            <span
+              class="country-card__sub-details"
+              data-cy="country-card__sub-details"
+              >{{ country.callingCode }}</span
+            >
           </div>
           <div>
             <span class="country-card__sub-title">Capital:</span>
@@ -32,10 +42,16 @@
             <span class="country-card__sub-details">{{ country.region }}</span>
           </div>
           <div>
-            <span class="country-card__sub-title" data-cy=country-card__sub-title>Population:</span>
-            <span class="country-card__sub-details" data-cy=country-card__sub-details>{{
-              country.population
-            }}</span>
+            <span
+              class="country-card__sub-title"
+              data-cy="country-card__sub-title"
+              >Population:</span
+            >
+            <span
+              class="country-card__sub-details"
+              data-cy="country-card__sub-details"
+              >{{ country.population }}</span
+            >
           </div>
           <div>
             <span class="country-card__sub-title">Area:</span>
@@ -48,7 +64,9 @@
               v-for="currency in country.currencies"
               v-bind:key="currency.name"
             >
-              <li data-cy="country-card__currency">{{ currency.name }} ({{ currency.symbol }})</li>
+              <li data-cy="country-card__currency">
+                {{ currency.name }} ({{ currency.symbol }})
+              </li>
             </div>
           </div>
           <div>
@@ -64,7 +82,11 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" class="country-card__map-contaner" data-cy="country-card__map-contaner">
+        <v-col
+          cols="12"
+          class="country-card__map-contaner"
+          data-cy="country-card__map-contaner"
+        >
           <v-row>
             <Map
               v-if="country.latitude && country.longtitude"
